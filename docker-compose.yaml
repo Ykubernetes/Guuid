@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  server:
+    image: winston2024/guuid:latest
+    restart: always
+    container_name: docker-guuid
+    ports:
+      - 9000:9000
