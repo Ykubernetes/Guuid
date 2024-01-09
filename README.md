@@ -10,15 +10,37 @@ UUID 的主要用途包括数据库记录的唯一标识、事务处理、分布
 
 Guuid使用了服务器Hostname、进程PID、时间戳、随机数、时序元素等一系列元素来保证生成UUID的唯一性。
 
-## 安装
+## 使用方式
 
-默认端口为：9000
+### Docker
 
 ```shell
-go clone https://github.com/Ykubernetes/Guuid.git
-cd Guuid
-go run main.go
+docker pull winston2024/guuid:latest
+
+docker-compose up -d
+
+# 默认端口为9000
+docker-compose logs
+docker-guuid  | [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+docker-guuid  | 
+docker-guuid  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+docker-guuid  |  - using env:	export GIN_MODE=release
+docker-guuid  |  - using code:	gin.SetMode(gin.ReleaseMode)
+docker-guuid  | 
+docker-guuid  | [GIN-debug] GET    /get                      --> github.com/ykubernetes/GUUID/Service.CreateHandler (3 handlers)
+docker-guuid  | [GIN-debug] GET    /get/simple               --> github.com/ykubernetes/GUUID/Service.CreateSimpleHandler (3 handlers)
+docker-guuid  | [GIN-debug] GET    /mget/:num                --> github.com/ykubernetes/GUUID/Service.CreateMultiHandler (3 handlers)
+docker-guuid  | [GIN-debug] GET    /mget/:num/simple         --> github.com/ykubernetes/GUUID/Service.CreateMultiSimpleHandler (3 handlers)
+docker-guuid  | [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+docker-guuid  | Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+docker-guuid  | [GIN-debug] Listening and serving HTTP on 0.0.0.0:9000
 ```
+
+### Windows/Linux
+
+下载对应平台制品，解压并运行
+
+通过浏览器访问`http://IP:9000/get`
 
 ## RestAPI
 
