@@ -20,3 +20,4 @@ COPY --from=builder /app/guuid /
 # USER nonroot:nonroot
 EXPOSE 9000
 CMD ["/guuid"]
+
